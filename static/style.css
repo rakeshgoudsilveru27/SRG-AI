@@ -731,3 +731,89 @@ body{
     margin-right:10px;
     font-size:16px;
 }
+/* MOBILE RESPONSIVE */
+
+@media screen and (max-width: 768px){
+
+    body{
+        overflow:hidden;
+    }
+
+    .sidebar{
+        width:70px;
+        padding:10px 5px;
+    }
+
+    .sidebar h1,
+    .sidebar p,
+    .menu-text,
+    .history-title,
+    .new-chat-text{
+        display:none;
+    }
+
+    .logo{
+        width:45px;
+        height:45px;
+        margin:auto;
+    }
+
+    .menu-btn,
+    .new-chat-btn,
+    .theme-btn{
+        width:100%;
+        padding:12px 5px;
+        font-size:18px;
+        justify-content:center;
+    }
+
+    .main{
+        margin-left:70px;
+        width:calc(100% - 70px);
+    }
+
+    .top-bar{
+        padding:10px;
+        font-size:16px;
+    }
+
+    .chat-box{
+        padding:10px;
+        height:calc(100vh - 140px);
+    }
+
+    .message{
+        max-width:90%;
+        font-size:14px;
+        padding:10px;
+    }
+
+    .input-area{
+        padding:10px;
+        gap:5px;
+    }
+
+    .input-area input{
+        font-size:14px;
+        padding:12px;
+    }
+
+    .send-btn,
+    .mic-btn,
+    .camera-btn{
+        width:45px;
+        height:45px;
+        font-size:18px;
+    }
+
+    .welcome-boxes{
+        grid-template-columns:1fr;
+        gap:10px;
+    }
+
+    .feature-box{
+        padding:15px;
+        font-size:14px;
+    }
+
+}
