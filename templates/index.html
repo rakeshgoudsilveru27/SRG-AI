@@ -1,12 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SRG.ai</title>
 
@@ -28,23 +27,18 @@ body{
     transition:0.3s;
 }
 
-
 /* LIGHT MODE */
 
 .light-mode{
-    background:#f4f7fb;
+    background:#dfe5ec;
     color:#111;
 }
 
-.light-mode .sidebar{
-    background:white;
-}
-
+.light-mode .sidebar,
 .light-mode .topbar{
     background:white;
 }
 
-.light-mode .history-item,
 .light-mode .card,
 .light-mode .ai-msg,
 .light-mode .input-box,
@@ -57,6 +51,11 @@ body{
     color:#111;
 }
 
+/* MOBILE MENU */
+
+.mobile-menu{
+    display:none;
+}
 
 /* SIDEBAR */
 
@@ -67,6 +66,7 @@ body{
     display:flex;
     flex-direction:column;
     border-right:1px solid rgba(255,255,255,0.08);
+    transition:0.3s;
 }
 
 .logo-area{
@@ -96,7 +96,6 @@ body{
     opacity:0.7;
 }
 
-
 /* BUTTONS */
 
 .new-chat{
@@ -120,7 +119,6 @@ body{
     cursor:pointer;
     margin-top:15px;
 }
-
 
 /* HISTORY */
 
@@ -146,7 +144,6 @@ body{
     cursor:pointer;
 }
 
-
 /* STATUS */
 
 .status-box{
@@ -171,7 +168,6 @@ body{
     text-align:center;
     opacity:0.7;
 }
-
 
 /* MAIN */
 
@@ -199,7 +195,6 @@ body{
     color:white;
     padding:0 10px;
 }
-
 
 /* HOME */
 
@@ -229,7 +224,6 @@ body{
     opacity:0.8;
 }
 
-
 /* FEATURES */
 
 .features{
@@ -250,7 +244,6 @@ body{
 .card h3{
     margin-bottom:12px;
 }
-
 
 /* CHAT */
 
@@ -284,7 +277,6 @@ body{
     margin-bottom:14px;
 }
 
-
 /* INPUT */
 
 .input-box{
@@ -315,7 +307,6 @@ body{
     font-size:18px;
     cursor:pointer;
 }
-
 
 /* LOADER */
 
@@ -353,14 +344,110 @@ body{
     }
 }
 
+/* MOBILE UI */
+
+@media only screen and (max-width:768px){
+
+    .mobile-menu{
+        position:fixed;
+        top:12px;
+        left:12px;
+        width:42px;
+        height:42px;
+        background:#111827;
+        border-radius:10px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:white;
+        font-size:22px;
+        z-index:1200;
+        cursor:pointer;
+    }
+
+    .sidebar{
+        position:fixed;
+        left:-260px;
+        top:0;
+        width:240px;
+        height:100vh;
+        z-index:1000;
+    }
+
+    .sidebar.active{
+        left:0;
+    }
+
+    .main-container{
+        width:100%;
+        margin-left:0;
+    }
+
+    .topbar{
+        height:60px;
+        padding:0 10px 0 60px;
+    }
+
+    .model-select{
+        width:100%;
+    }
+
+    .welcome h1{
+        font-size:38px;
+    }
+
+    .welcome p{
+        font-size:14px;
+    }
+
+    .features{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .card{
+        width:100%;
+    }
+
+    .chat-area{
+        padding:10px;
+        padding-bottom:90px;
+    }
+
+    .chat-messages{
+        height:calc(100vh - 240px);
+    }
+
+    .user-msg,
+    .ai-msg{
+        max-width:90%;
+        font-size:14px;
+    }
+
+    .input-box{
+        position:fixed;
+        bottom:10px;
+        left:10px;
+        right:10px;
+        z-index:999;
+    }
+
+    .tagline,
+    .clock,
+    .status-box{
+        display:none;
+    }
+}
+
 </style>
 
 </head>
 
 <body>
 
-
-<!-- SIDEBAR -->
+<div class="mobile-menu" onclick="toggleSidebar()">
+☰
+</div>
 
 <div class="sidebar">
 
@@ -383,7 +470,6 @@ body{
 
     </div>
 
-
     <button class="new-chat"
             onclick="newChat()">
 
@@ -391,19 +477,15 @@ body{
 
     </button>
 
-
     <div class="history-section">
 
         <div class="history-title">
-
             🕘 Chats
-
         </div>
 
         <div id="historyList"></div>
 
     </div>
-
 
     <button class="mode-btn"
             id="themeButton">
@@ -411,7 +493,6 @@ body{
         ☀ Light / Dark
 
     </button>
-
 
     <div class="status-box">
 
@@ -423,41 +504,23 @@ body{
 
     </div>
 
-
-    <div class="clock"
-         id="clock"></div>
+    <div class="clock" id="clock"></div>
 
 </div>
 
-
-<!-- MAIN -->
-
 <div class="main-container">
-
 
     <div class="topbar">
 
-        <select id="modelSelect"
-                class="model-select">
+        <select id="modelSelect" class="model-select">
 
-            <option value="phi3">
-                Phi 3 Fast
-            </option>
-
-            <option value="mistral">
-                Mistral
-            </option>
-
-            <option value="llama3">
-                Llama 3 Smart
-            </option>
+            <option value="phi3">Phi 3 Fast</option>
+            <option value="mistral">Mistral</option>
+            <option value="llama3">Llama 3 Smart</option>
 
         </select>
 
     </div>
-
-
-    <!-- HOME -->
 
     <div class="main">
 
@@ -475,64 +538,30 @@ body{
 
         </div>
 
-
         <div class="features">
 
             <div class="card">
-
-                <h3>
-                    💡 Explain Circuits
-                </h3>
-
-                <p>
-                    Understand electronics
-                    in simple words.
-                </p>
-
+                <h3>💡 Explain Circuits</h3>
+                <p>Understand electronics in simple words.</p>
             </div>
 
-
             <div class="card">
-
-                <h3>
-                    💻 Arduino Coding
-                </h3>
-
-                <p>
-                    Get help with Arduino
-                    and embedded systems.
-                </p>
-
+                <h3>💻 Arduino Coding</h3>
+                <p>Get help with Arduino and embedded systems.</p>
             </div>
 
-
             <div class="card">
-
-                <h3>
-                    🤖 Embedded Systems
-                </h3>
-
-                <p>
-                    Assistance for robotics,
-                    PCB and microcontrollers.
-                </p>
-
+                <h3>🤖 Embedded Systems</h3>
+                <p>Assistance for robotics, PCB and microcontrollers.</p>
             </div>
 
         </div>
 
     </div>
 
-
-    <!-- CHAT -->
-
     <div class="chat-area">
 
-        <div class="chat-messages"
-             id="chatMessages">
-
-        </div>
-
+        <div class="chat-messages" id="chatMessages"></div>
 
         <div class="input-box">
 
@@ -542,9 +571,7 @@ body{
 
             <button class="send-btn"
                     onclick="sendMessage()">
-
                 ➜
-
             </button>
 
         </div>
@@ -553,54 +580,67 @@ body{
 
 </div>
 
-
 <script>
-
-/* LIGHT MODE */
 
 const themeButton =
 document.getElementById(
     "themeButton"
 );
 
-themeButton.addEventListener(
-"click",
-function(){
+let savedTheme =
+localStorage.getItem(
+    "theme"
+);
+
+if(savedTheme === "light"){
+
+    document.body.classList.add(
+        "light-mode"
+    );
+}
+
+themeButton.onclick = function(){
 
     document.body.classList.toggle(
         "light-mode"
     );
 
-});
+    if(document.body.classList.contains(
+        "light-mode"
+    )){
 
+        localStorage.setItem(
+            "theme",
+            "light"
+        );
 
-/* CLOCK */
+    }
+
+    else{
+
+        localStorage.setItem(
+            "theme",
+            "dark"
+        );
+
+    }
+};
 
 function updateClock(){
 
-    let now =
-    new Date();
+    let now = new Date();
 
     document.getElementById(
         "clock"
     ).innerHTML =
     now.toLocaleTimeString();
-
 }
 
 setInterval(updateClock,1000);
-
 updateClock();
 
-
-/* CHAT */
-
 let currentChat = [];
-
 let currentChatTitle = null;
-
-
-/* SEND MESSAGE */
 
 async function sendMessage(){
 
@@ -621,7 +661,6 @@ async function sendMessage(){
         "chatMessages"
     );
 
-
     document.querySelector(
         ".welcome"
     ).style.display = "none";
@@ -630,81 +669,48 @@ async function sendMessage(){
         ".features"
     ).style.display = "none";
 
-
-    /* USER MESSAGE */
-
     chatBox.innerHTML += `
-
     <div class="user-msg">
         ${message}
     </div>
-
     `;
-
-
-    /* AUTO SCROLL */
 
     chatBox.scrollTop =
     chatBox.scrollHeight;
-
 
     currentChat.push({
         type:"user",
         text:message
     });
 
-
     if(currentChatTitle === null){
         currentChatTitle = message;
     }
 
-
     input.value = "";
-
-
-    /* LOADER */
 
     let typingDiv =
     document.createElement("div");
 
-    typingDiv.className =
-    "ai-msg";
-
-    typingDiv.id =
-    "typing";
+    typingDiv.className = "ai-msg";
+    typingDiv.id = "typing";
 
     typingDiv.innerHTML = `
-
     <div class="dot-loader">
-
         <span></span>
         <span></span>
         <span></span>
-
     </div>
-
     `;
 
-    chatBox.appendChild(
-        typingDiv
-    );
-
-
-    /* AUTO SCROLL */
+    chatBox.appendChild(typingDiv);
 
     chatBox.scrollTop =
     chatBox.scrollHeight;
 
+    let formData = new FormData();
 
-    /* FLASK */
-
-    let formData =
-    new FormData();
-
-    formData.append(
-        "message",
-        message
-    );
+    formData.append("message",message);
 
     formData.append(
         "model",
@@ -713,47 +719,31 @@ async function sendMessage(){
         ).value
     );
 
-
     try{
 
         const response =
         await fetch("/chat",{
-
             method:"POST",
-
             body:formData
-
         });
 
-        const data =
-        await response.json();
+        const data = await response.json();
 
-
-        document.getElementById(
-            "typing"
-        ).remove();
-
+        document.getElementById("typing").remove();
 
         chatBox.innerHTML += `
-
         <div class="ai-msg">
             ${data.reply}
         </div>
-
         `;
-
-
-        /* AUTO SCROLL */
 
         chatBox.scrollTop =
         chatBox.scrollHeight;
-
 
         currentChat.push({
             type:"ai",
             text:data.reply
         });
-
 
         saveChat();
 
@@ -761,16 +751,9 @@ async function sendMessage(){
 
     catch(error){
 
-        document.getElementById(
-            "typing"
-        ).remove();
-
+        document.getElementById("typing").remove();
     }
-
 }
-
-
-/* SAVE CHAT */
 
 function saveChat(){
 
@@ -781,45 +764,30 @@ function saveChat(){
         )
     ) || [];
 
-
     let existingChat =
     chats.find(
         chat => chat.title === currentChatTitle
     );
 
-
     if(existingChat){
-
-        existingChat.messages =
-        [...currentChat];
-
+        existingChat.messages = [...currentChat];
     }
 
     else{
 
         chats.unshift({
-
             title:currentChatTitle,
-
             messages:[...currentChat]
-
         });
-
     }
-
 
     localStorage.setItem(
         "srg_chats",
         JSON.stringify(chats)
     );
 
-
     loadHistory();
-
 }
-
-
-/* LOAD HISTORY */
 
 function loadHistory(){
 
@@ -830,7 +798,6 @@ function loadHistory(){
 
     historyBox.innerHTML = "";
 
-
     let chats =
     JSON.parse(
         localStorage.getItem(
@@ -838,27 +805,18 @@ function loadHistory(){
         )
     ) || [];
 
-
     chats.forEach(chat => {
 
         let item =
         document.createElement("button");
 
-        item.className =
-        "history-item";
-
-        item.innerText =
-        chat.title;
-
+        item.className = "history-item";
+        item.innerText = chat.title;
 
         item.onclick = function(){
 
-            currentChat =
-            [...chat.messages];
-
-            currentChatTitle =
-            chat.title;
-
+            currentChat = [...chat.messages];
+            currentChatTitle = chat.title;
 
             document.querySelector(
                 ".welcome"
@@ -868,14 +826,12 @@ function loadHistory(){
                 ".features"
             ).style.display = "none";
 
-
             let chatBox =
             document.getElementById(
                 "chatMessages"
             );
 
             chatBox.innerHTML = "";
-
 
             chat.messages.forEach(msg => {
 
@@ -886,7 +842,6 @@ function loadHistory(){
                         ${msg.text}
                     </div>
                     `;
-
                 }
 
                 else{
@@ -896,26 +851,17 @@ function loadHistory(){
                         ${msg.text}
                     </div>
                     `;
-
                 }
-
             });
-
         };
 
         historyBox.appendChild(item);
-
     });
-
 }
-
-
-/* NEW CHAT */
 
 function newChat(){
 
     currentChat = [];
-
     currentChatTitle = null;
 
     document.getElementById(
@@ -929,12 +875,18 @@ function newChat(){
     document.querySelector(
         ".features"
     ).style.display = "flex";
-
 }
 
+function toggleSidebar(){
+
+    document.querySelector(
+        ".sidebar"
+    ).classList.toggle(
+        "active"
+    );
+}
 
 loadHistory();
-
 
 document
 .getElementById("userInput")
@@ -945,11 +897,9 @@ function(event){
     if(event.key === "Enter"){
         sendMessage();
     }
-
 });
 
 </script>
 
 </body>
-
 </html>
