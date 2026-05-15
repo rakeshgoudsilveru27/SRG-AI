@@ -731,8 +731,7 @@ body{
     margin-right:10px;
     font-size:16px;
 }
-
-/*  MOBILE UI */
+/* FINAL MOBILE UI */
 
 @media only screen and (max-width:768px){
 
@@ -740,417 +739,95 @@ body{
         overflow:hidden;
     }
 
-    /* SIDEBAR */
-
     .sidebar{
-
         position:fixed;
-
         left:-260px;
-
         top:0;
-
-        width:230px;
-
+        width:240px;
         height:100vh;
-
-        background:#07152d;
-
         z-index:1000;
-
         transition:0.3s;
-
     }
 
     .sidebar.active{
         left:0;
     }
 
-    /* MOBILE MENU BUTTON */
-
     .mobile-menu{
-
         position:fixed;
-
         top:12px;
-
         left:12px;
-
         width:42px;
-
         height:42px;
-
         background:#111827;
-
         border-radius:10px;
-
         display:flex;
-
         align-items:center;
-
         justify-content:center;
-
         color:white;
-
         font-size:22px;
-
-        z-index:1100;
-
-    }
-
-    /* MAIN AREA */
-
-    .main{
-
-        width:100%;
-
-        margin-left:0;
-
-    }
-
-    /* TOP BAR */
-
-    .top-bar{
-
-        height:60px;
-
-        padding-left:60px;
-
-        padding-right:10px;
-
-        display:flex;
-
-        align-items:center;
-
-    }
-
-    /* CHAT BOX */
-
-    .chat-box{
-
-        height:calc(100vh - 140px);
-
-        padding:10px;
-
-        overflow-y:auto;
-
-    }
-
-    /* WELCOME SECTION */
-
-    .welcome{
-
-        margin-top:20px;
-
-        text-align:center;
-
-    }
-
-    .welcome h1{
-
-        font-size:42px;
-
-        line-height:1.1;
-
-    }
-
-    .welcome p{
-
-        font-size:15px;
-
-        padding:0 10px;
-
-    }
-
-    /* FEATURE BOXES */
-
-    .welcome-boxes{
-
-        display:flex;
-
-        flex-direction:column;
-
-        gap:10px;
-
-        margin-top:20px;
-
-    }
-
-    .feature-box{
-
-        width:100%;
-
-        padding:16px;
-
-        border-radius:18px;
-
-        text-align:left;
-
-    }
-
-    /* CHAT MESSAGES */
-
-    .message{
-
-        max-width:85%;
-
-        padding:12px;
-
-        border-radius:18px;
-
-        font-size:15px;
-
-        margin-bottom:10px;
-
-    }
-
-    /* INPUT BAR */
-
-    .input-area{
-
-        position:fixed;
-
-        bottom:10px;
-
-        left:10px;
-
-        right:10px;
-
-        background:#111827;
-
-        border-radius:18px;
-
-        padding:8px;
-
-        display:flex;
-
-        align-items:center;
-
-        gap:8px;
-
-    }
-
-    .input-area input{
-
-        flex:1;
-
-        background:transparent;
-
-        border:none;
-
-        outline:none;
-
-        color:white;
-
-        font-size:15px;
-
-        padding:12px;
-
-    }
-
-    /* BUTTONS */
-
-    .send-btn,
-    .mic-btn,
-    .camera-btn{
-
-        width:44px;
-
-        height:44px;
-
-        border-radius:14px;
-
-        font-size:18px;
-
-        flex-shrink:0;
-
-    }
-
-    /* HIDE EXTRA ITEMS */
-
-    .tagline,
-    .online-status,
-    .clock{
-        display:none;
-    }
-
-}
-@media only screen and (max-width:768px){
-
-    .sidebar{
-        left:-250px !important;
-        position:fixed !important;
-    }
-
-    .sidebar.active{
-        left:0 !important;
-    }
-
-    .main{
-        margin-left:0 !important;
-        width:100% !important;
-    }
-
-    .chat-box{
-        width:100% !important;
-    }
-
-    .welcome{
-        padding-top:20px !important;
-    }
-
-    .input-area{
-        position:fixed !important;
-        bottom:10px !important;
-        left:10px !important;
-        right:10px !important;
-    }
-
-}
-/* REAL MOBILE FIX */
-
-@media only screen and (max-width:768px){
-
-    body{
-        overflow:hidden;
-    }
-
-    /* SIDEBAR */
-
-    .sidebar{
-
-        position:fixed !important;
-
-        left:-260px !important;
-
-        top:0;
-
-        width:240px !important;
-
-        height:100vh;
-
-        z-index:1000;
-
-        transition:0.3s;
-    }
-
-    .sidebar.active{
-        left:0 !important;
-    }
-
-    /* MOBILE MENU */
-
-    .mobile-menu{
-
-        position:fixed;
-
-        top:12px;
-
-        left:12px;
-
-        width:42px;
-
-        height:42px;
-
-        background:#111827;
-
-        border-radius:10px;
-
-        display:flex;
-
-        align-items:center;
-
-        justify-content:center;
-
-        color:white;
-
-        font-size:22px;
-
         z-index:1200;
+        cursor:pointer;
     }
-
-    /* MAIN */
 
     .main-container{
-
-        width:100% !important;
-
-        margin-left:0 !important;
+        width:100%;
+        margin-left:0;
     }
-
-    /* TOPBAR */
 
     .topbar{
-
-        padding-left:60px !important;
-
         height:60px;
+        padding:0 10px 0 60px;
     }
 
-    /* HOME */
+    .model-select{
+        width:100%;
+    }
 
     .welcome h1{
-        font-size:38px !important;
+        font-size:38px;
     }
 
     .welcome p{
         font-size:14px;
     }
 
-    /* FEATURE BOXES */
-
     .features{
-
-        flex-direction:column !important;
-
-        width:100%;
+        flex-direction:column;
+        gap:12px;
     }
 
     .card{
-
-        width:100% !important;
+        width:100%;
     }
 
-    /* CHAT */
-
     .chat-area{
-
-        padding:10px !important;
-
-        padding-bottom:90px !important;
+        padding:10px;
+        padding-bottom:90px;
     }
 
     .chat-messages{
-
-        height:calc(100vh - 220px) !important;
+        height:calc(100vh - 240px);
     }
 
     .user-msg,
     .ai-msg{
-
-        max-width:90% !important;
-
+        max-width:90%;
         font-size:14px;
     }
 
-    /* INPUT */
-
     .input-box{
-
         position:fixed;
-
         bottom:10px;
-
         left:10px;
-
         right:10px;
-
         z-index:999;
     }
 
-    .input-box input{
-
-        font-size:15px;
+    .tagline,
+    .clock,
+    .status-box{
+        display:none;
     }
 
 }
