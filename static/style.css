@@ -734,7 +734,7 @@ body{
 
 /*  MOBILE UI */
 
-@media screen and (max-width:768px){
+@media only screen and (max-width:768px){
 
     body{
         overflow:hidden;
@@ -972,6 +972,38 @@ body{
     .online-status,
     .clock{
         display:none;
+    }
+
+}
+@media only screen and (max-width:768px){
+
+    .sidebar{
+        left:-250px !important;
+        position:fixed !important;
+    }
+
+    .sidebar.active{
+        left:0 !important;
+    }
+
+    .main{
+        margin-left:0 !important;
+        width:100% !important;
+    }
+
+    .chat-box{
+        width:100% !important;
+    }
+
+    .welcome{
+        padding-top:20px !important;
+    }
+
+    .input-area{
+        position:fixed !important;
+        bottom:10px !important;
+        left:10px !important;
+        right:10px !important;
     }
 
 }
