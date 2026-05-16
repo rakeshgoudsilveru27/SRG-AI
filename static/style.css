@@ -645,4 +645,8 @@ body{
 .status-box{
     margin-top:12px;
 }
+
+}
+.mobile-menu{
+    display:none;
 }
