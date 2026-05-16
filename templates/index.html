@@ -513,6 +513,12 @@ function loadHistory(){
                     `;
                 }
             });
+
+            document.querySelector(
+                ".sidebar"
+            ).classList.remove(
+                "active"
+            );
         };
 
         historyBox.appendChild(
@@ -538,16 +544,61 @@ function newChat(){
     document.querySelector(
         ".features"
     ).style.display = "flex";
+
+    document.querySelector(
+        ".sidebar"
+    ).classList.remove(
+        "active"
+    );
 }
 
 function toggleSidebar(){
 
+    const sidebar =
     document.querySelector(
         ".sidebar"
-    ).classList.toggle(
+    );
+
+    sidebar.classList.toggle(
         "active"
     );
 }
+
+/* SWIPE TO CLOSE SIDEBAR */
+
+let touchStartX = 0;
+
+let touchEndX = 0;
+
+const sidebar =
+document.querySelector(
+    ".sidebar"
+);
+
+sidebar.addEventListener(
+"touchstart",
+
+function(e){
+
+    touchStartX =
+    e.changedTouches[0].screenX;
+});
+
+sidebar.addEventListener(
+"touchend",
+
+function(e){
+
+    touchEndX =
+    e.changedTouches[0].screenX;
+
+    if(touchEndX < touchStartX - 50){
+
+        sidebar.classList.remove(
+            "active"
+        );
+    }
+});
 
 loadHistory();
 
