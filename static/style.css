@@ -491,11 +491,25 @@ body{
     }
 
     .card p{
-        font-size:13px;
-        opacity:0.75;
-        line-height:1.5;
+        display:none;
+        height:0;
+        overflow:hidden;
+        margin: 0;
+        padding:0;
+
+    }
+    /* CHATGPT STYLE MOBILE QUICK ACTIONS */
+
+.card{
+        min-height:72px;
+        display:flex;
+        justify-content:center;
     }
 
+    .card h3{
+        margin:0;
+        font-size:17px;
+}
     .chat-area{
         position:fixed;
         left:0;
