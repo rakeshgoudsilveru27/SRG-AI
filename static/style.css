@@ -224,6 +224,11 @@ body{
     padding:30px;
     overflow-y:auto;
 }
+/* HIDE MOBILE MENU ON DESKTOP */
+
+.mobile-menu{
+    display:none;
+}
 
 /* HERO */
 
@@ -394,6 +399,9 @@ body{
         overflow:hidden;
         background:#0b1220;
     }
+    .mobile-menu{
+    display:flex;
+}
 
     .mobile-menu{
         position:fixed;
@@ -646,7 +654,4 @@ body{
     margin-top:12px;
 }
 
-}
-.mobile-menu{
-    display:none;
 }
