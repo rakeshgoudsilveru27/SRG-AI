@@ -86,8 +86,7 @@ body{
 }
 
 .logo-area div{
-    display:flex;
-    flex-direction:column;
+    display:block;
 }
 
 .logo-text{
@@ -582,9 +581,7 @@ body{
         border-radius:12px;
     }
 
-    .tagline,
-    .clock,
-    .status-box{
+    .tagline{
         display:none;
     }
     .history-section{
@@ -625,5 +622,27 @@ body{
 .clock{
     width:100%;
     flex-shrink:0;
+}
+.light-mode .input-box input{
+    color:#111;
+}
+
+/* SIDEBAR MOBILE FIX */
+
+.sidebar{
+    justify-content:flex-start;
+}
+
+.history-section{
+    flex:none;
+    margin-top:18px;
+}
+
+.mode-btn{
+    margin-top:auto;
+}
+
+.status-box{
+    margin-top:12px;
 }
 }
