@@ -122,13 +122,15 @@ body{
 }
 
 .mode-btn{
-    height:45px;
+    width:100%;
+    min-height:48px;
     border:none;
-    border-radius:12px;
+    border-radius:14px;
     background:#10213a;
     color:white;
     cursor:pointer;
     margin-top:15px;
+    font-size:15px;
 }
 
 /* HISTORY */
@@ -411,18 +413,21 @@ body{
         cursor:pointer;
     }
 
-    .sidebar{
-        position:fixed;
-        left:-280px;
-        top:0;
-        width:250px;
-        height:100vh;
-        z-index:1300;
-        overflow-y:auto;
-        transition:0.3s;
-        backdrop-filter:blur(12px);
-        background:rgba(8,17,31,0.96);
-    }
+.sidebar{
+    position:fixed;
+    left:-100%;
+    top:0;
+    width:82%;
+    max-width:320px;
+    height:100vh;
+    z-index:1300;
+    overflow-y:auto;
+    transition:0.3s;
+    backdrop-filter:blur(12px);
+    background:rgba(8,17,31,0.98);
+    padding:18px;
+}
+
 
     .sidebar.active{
         left:0;
@@ -579,6 +584,13 @@ body{
     .status-box{
         display:none;
     }
+    .history-section{
+    padding-bottom:20px;
+}
+
+.sidebar button{
+    flex-shrink:0;
+}
 
     /* MOBILE LIGHT MODE */
 
