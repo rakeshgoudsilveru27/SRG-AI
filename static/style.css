@@ -139,6 +139,7 @@ body{
     margin-top:20px;
     flex:1;
     overflow-y:auto;
+    min-height:0;
 }
 
 .history-item{
@@ -419,15 +420,17 @@ body{
     top:0;
     width:82%;
     max-width:320px;
-    height:100vh;
+    height:100dvh;
     z-index:1300;
-    overflow-y:auto;
+    overflow:hidden;
     transition:0.3s;
     backdrop-filter:blur(12px);
     background:rgba(8,17,31,0.98);
     padding:18px;
-}
 
+    display:flex;
+    flex-direction:column;
+}
 
     .sidebar.active{
         left:0;
@@ -615,4 +618,12 @@ body{
     .light-mode .input-box input{
         color:#111;
     }
+    /* FIX MOBILE SIDEBAR OVERFLOW */
+
+.mode-btn,
+.status-box,
+.clock{
+    width:100%;
+    flex-shrink:0;
+}
 }
